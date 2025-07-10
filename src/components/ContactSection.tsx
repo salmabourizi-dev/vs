@@ -76,8 +76,8 @@ export const ContactSection = () => {
                   <div>
                     <h3 className="text-white font-semibold mb-2">Adresse</h3>
                     <p className="text-gray-300">
-                      25 Avenue des Champs-Élysées<br />
-                      75008 Paris, France
+                      Angle Route d'El Jadida et Rue Abou Dabi, Oasis, Casablanca, Maroc<br />
+                      
                     </p>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export const ContactSection = () => {
                   <Phone className="h-6 w-6 text-blue-400 mt-1" />
                   <div>
                     <h3 className="text-white font-semibold mb-2">Téléphone</h3>
-                    <p className="text-gray-300">+33 1 42 56 78 90</p>
+                    <p className="text-gray-300">+212 (0) 5 22 99 97 90</p>
                   </div>
                 </div>
               </CardContent>
@@ -127,7 +127,7 @@ export const ContactSection = () => {
           {/* Formulaire de contact */}
           <Card className="bg-white/10 backdrop-blur-md border-white/20">
             <CardHeader>
-              <CardTitle className="text-white text-2xl">Devenir client</CardTitle>
+              <CardTitle className="text-white text-2xl"></CardTitle>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-4">

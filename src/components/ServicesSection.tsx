@@ -48,7 +48,7 @@ export const ServicesSection = () => {
               <TrendingUp className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold mb-3">Gestion de Portefeuille</h3>
               <p className="text-blue-100">
-                Gestion personnalisée et optimisée de vos investissements selon votre profil de risque.
+                Conseil et Intermédiation Actions et Obligations,
               </p>
             </div>
 
@@ -56,7 +56,7 @@ export const ServicesSection = () => {
               <Shield className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold mb-3">Conseil Patrimoine</h3>
               <p className="text-slate-100">
-                Stratégies patrimoniales sur mesure pour optimiser votre fiscalité et vos revenus.
+                Corporate Broking
               </p>
             </div>
 
@@ -64,7 +64,7 @@ export const ServicesSection = () => {
               <Users className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold mb-3">Gestion Institutionnelle</h3>
               <p className="text-cyan-100">
-                Solutions dédiées aux entreprises, associations et investisseurs institutionnels.
+                Routage d’Ordres
               </p>
             </div>
 
@@ -72,7 +72,7 @@ export const ServicesSection = () => {
               <Globe className="h-12 w-12 mb-4 group-hover:scale-110 transition-transform" />
               <h3 className="text-xl font-semibold mb-3">Marchés Internationaux</h3>
               <p className="text-slate-100">
-                Accès aux marchés européens et internationaux pour diversifier vos investissements.
+                Négociation de tout type de transactions à la bourse de Casablanca
               </p>
             </div>
           </div>
