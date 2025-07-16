@@ -50,9 +50,9 @@ const SupportChat = () => {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
-              Authorization: "Bearer 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",
+              Authorization: "Bearer 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",
               "Content-Type": "application/json",
-              "HTTP-Referer": "https://valoris.ma", // Mets ici ton vrai site
+              "HTTP-Referer": "https://valoris.ma",
               "X-Title": "Valoris Securities",
             },
             body: JSON.stringify({
