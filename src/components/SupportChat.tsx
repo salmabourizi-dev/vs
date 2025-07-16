@@ -52,7 +52,7 @@ const SupportChat = () => {
             headers: {
               Authorization: "Bearer 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",
               "Content-Type": "application/json",
-              "HTTP-Referer": "https://valoris.ma",
+              "HTTP-Referer": "https://vs-lilac.vercel.app/",
               "X-Title": "Valoris Securities",
             },
             body: JSON.stringify({
