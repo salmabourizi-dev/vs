@@ -1,12 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,9 +34,14 @@ export const Header = () => {
   };
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      localStorage.setItem('scrollToSection', sectionId);
+      navigate('/');
+    } else {
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false);
   };
@@ -81,6 +87,7 @@ export const Header = () => {
             >
               Contactez-nous
             </button>
+            <Link to="/notre-equipe" className="px-4 py-2 hover:text-blue-600">Notre équipe</Link>
             <button onClick={toggleDarkMode} className="text-xl px-2 focus:outline-none" title="Changer de mode">
               <span className="hidden dark:inline">☀️</span>
               <span className="inline dark:hidden">🌙</span>
@@ -135,6 +142,9 @@ export const Header = () => {
             >
               Contactez-nous
             </button>
+            <Link to="/notre-equipe" className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
+              Notre équipe
+            </Link>
             <button onClick={toggleDarkMode} className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
               <span className="hidden dark:inline">☀️</span>
               <span className="inline dark:hidden">🌙</span>

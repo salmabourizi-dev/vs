@@ -1,5 +1,6 @@
 import React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/accordion";
+import FillablePdfForm from './FillablePdfForm';
 
 // Temporary DownloadIcon replacement due to missing @radix-ui/react-icons
 const DownloadIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -49,6 +50,7 @@ const documents = [
 ];
 
 export default function DownloadSection() {
+  const [showFillable, setShowFillable] = React.useState(false);
   return (
     <section className="my-8 bg-white dark:bg-slate-800 rounded shadow">
       <div className="px-6 py-4 border-b flex items-center gap-2 dark:border-gray-700">
@@ -64,7 +66,7 @@ export default function DownloadSection() {
             <AccordionContent className="bg-blue-50 dark:bg-slate-700 px-4">
               <ul>
                 {cat.files.map((doc, i) => (
-                  <li key={doc.file} className="py-1 border-b last:border-b-0 dark:border-gray-600">
+                  <li key={doc.file} className="py-1 border-b last:border-b-0 dark:border-gray-600 flex items-center gap-2">
                     <a
                       href={doc.file}
                       target="_blank"
@@ -74,6 +76,7 @@ export default function DownloadSection() {
                       {i + 1}- {doc.name}
                       <DownloadIcon />
                     </a>
+                    {/* Le bouton 'Remplir & Imprimer' a été retiré */}
                   </li>
                 ))}
               </ul>
@@ -81,6 +84,21 @@ export default function DownloadSection() {
           </AccordionItem>
         ))}
       </Accordion>
+      {/* {showFillable && <FillablePdfForm />} */}
+      {/* Scroll indicator */}
+      <div className="flex justify-center mt-8">
+        <div className="hidden md:flex flex-col items-center animate-bounce">
+          <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center shadow-lg">
+            <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <span className="text-cyan-600 mt-2 text-sm font-semibold"></span>
+        </div>
+        <div className="md:hidden flex flex-col items-center animate-bounce">
+          <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center shadow-lg">
+            <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+        </div>
+      </div>
     </section>
   );
 } 

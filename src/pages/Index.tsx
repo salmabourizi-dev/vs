@@ -6,10 +6,23 @@ import { ServicesSection } from '@/components/ServicesSection';
 import { ContactSection } from '@/components/ContactSection';
 import { Footer } from '@/components/Footer';
 import DownloadSection from '../components/DownloadSection';
+import TimelineSection from '../components/TimelineSection';
 import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import SupportChat from "@/components/SupportChat";
 
 const Index = () => {
   const navigate = useNavigate();
+  useEffect(() => {
+    const sectionId = localStorage.getItem('scrollToSection');
+    if (sectionId) {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+      localStorage.removeItem('scrollToSection');
+    }
+  }, []);
   return (
     <div className="min-h-screen bg-white">
       <Header />
@@ -19,6 +32,7 @@ const Index = () => {
       <AboutSection />
       <OrganizationSection />
       <ServicesSection />
+      <TimelineSection />
       <section className="w-full bg-blue-50 py-16 flex items-center justify-center">
         <div className="max-w-5xl w-full px-4">
           <DownloadSection />
@@ -41,6 +55,7 @@ const Index = () => {
       </div>
       <ContactSection />
       <Footer />
+      <SupportChat />
     </div>
   );
 };

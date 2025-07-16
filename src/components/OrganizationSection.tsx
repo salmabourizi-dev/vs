@@ -26,7 +26,7 @@ export const OrganizationSection = () => {
     <section 
       ref={sectionRef}
       id="organization" 
-      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50"
+      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50 mt-16"
     >
       <div className="container mx-auto px-4">
         <div className={`transition-all duration-1000 ${
@@ -98,6 +98,20 @@ export const OrganizationSection = () => {
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+         {/* Scroll indicator */}
+         <div className="flex justify-center mt-8">
+        <div className="hidden md:flex flex-col items-center animate-bounce">
+          <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center shadow-lg">
+            <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </div>
+          <span className="text-cyan-600 mt-2 text-sm font-semibold"></span>
+        </div>
+        <div className="md:hidden flex flex-col items-center animate-bounce">
+          <div className="w-8 h-8 rounded-full bg-cyan-500 flex items-center justify-center shadow-lg">
+            <svg width="24" height="24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"></polyline></svg>
           </div>
         </div>
       </div>
