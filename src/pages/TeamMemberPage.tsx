@@ -12,15 +12,15 @@ export default function TeamMemberPage() {
   if (!member) return <div className="p-8">Membre introuvable</div>;
 
   return (
-    <div className="flex min-h-screen bg-gray-50">
+    <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
       {/* Grille des membres à gauche */}
-      <div className="w-1/2 p-8 grid grid-cols-2 gap-6 overflow-y-auto max-h-screen">
+      <div className="w-full md:w-1/2 p-4 md:p-8 grid grid-cols-2 gap-4 md:gap-6 overflow-y-auto max-h-screen">
         {allMembers.map(m => (
           <TeamCard key={m.slug} member={m} />
         ))}
       </div>
       {/* Fiche détaillée à droite */}
-      <div className="w-1/2 p-12 flex flex-col items-center bg-white shadow-lg min-h-screen relative">
+      <div className="w-full md:w-1/2 p-6 md:p-12 flex flex-col items-center bg-white shadow-lg min-h-screen relative">
         {/* Icône de fermeture */}
         <button
           onClick={() => navigate('/notre-equipe')}
