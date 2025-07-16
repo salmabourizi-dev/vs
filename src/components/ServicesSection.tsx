@@ -1,10 +1,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { TrendingUp, Shield, Users, Globe } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 export const ServicesSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -35,11 +37,10 @@ export const ServicesSection = () => {
         }`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Nos Métiers
+              {t('services.titre')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une gamme complète de services financiers pour répondre 
-              à tous vos besoins d'investissement et de gestion patrimoniale.
+              {t('services.texte1')}
             </p>
           </div>
 
@@ -79,20 +80,20 @@ export const ServicesSection = () => {
 
           <div className="mt-16 bg-gradient-to-r from-blue-50 to-slate-50 p-8 rounded-lg">
             <h3 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
-              Nos Produits Financiers
+              {t('services.produits.titre')}
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
                 <h4 className="font-semibold text-slate-700 mb-2">Actions & ETF</h4>
-                <p className="text-gray-600 text-sm">Investissement en bourse, fonds indiciels</p>
+                <p className="text-gray-600 text-sm">{t('services.produits.actions')}</p>
               </div>
               <div className="text-center">
                 <h4 className="font-semibold text-slate-700 mb-2">Obligations</h4>
-                <p className="text-gray-600 text-sm">Titres de créance, obligations d'État et corporate</p>
+                <p className="text-gray-600 text-sm">{t('services.produits.obligations')}</p>
               </div>
               <div className="text-center">
                 <h4 className="font-semibold text-slate-700 mb-2">Assurance Vie</h4>
-                <p className="text-gray-600 text-sm">Contrats multisupports, fonds euro</p>
+                <p className="text-gray-600 text-sm">{t('services.produits.assurance')}</p>
               </div>
             </div>
           </div>

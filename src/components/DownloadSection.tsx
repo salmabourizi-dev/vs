@@ -1,6 +1,7 @@
 import React from "react";
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "./ui/accordion";
 import FillablePdfForm from './FillablePdfForm';
+import { useTranslation } from 'react-i18next';
 
 // Temporary DownloadIcon replacement due to missing @radix-ui/react-icons
 const DownloadIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -23,45 +24,46 @@ const DownloadIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const documents = [
   {
-    category: "DOSSIER CLIENT PERSONNE PHYSIQUE",
+    category: "download.categoryPP",
     files: [
-      { name: "CONVENTION INTERMEDIATION", file: "/documents/Convention_Intermediation.pdf" },
-      { name: "FICHE QUESTIONNAIRE PP", file: "/documents/Fiche_questionnaire_PP.pdf" },
-      { name: "CONVENTION OUVERTURE COMPTE TITRES ESPECES", file: "/documents/Convention_Ouverture_Compte_Titres_Especes.pdf" },
-      { name: "GRILLE TARIFAIRE", file: "/documents/Grille_tarifaire.pdf" },
+      { name: "download.fileConventionIntermediation", file: "/documents/Convention_Intermediation.pdf" },
+      { name: "download.fileFichePP", file: "/documents/Fiche_questionnaire_PP.pdf" },
+      { name: "download.fileConventionOuverture", file: "/documents/Convention_Ouverture_Compte_Titres_Especes.pdf" },
+      { name: "download.fileGrilleTarifaire", file: "/documents/Grille_tarifaire.pdf" },
     ],
   },
   {
-    category: "DOSSIER CLIENT PERSONNE MORALE",
+    category: "download.categoryPM",
     files: [
-      { name: "CONVENTION INTERMEDIATION", file: "/documents/Convention_Intermediation.pdf" },
-      { name: "FICHE QUESTIONNAIRE PM", file: "/documents/Fiche_questionnaire_PM.pdf" },
-      { name: "CONVENTION OUVERTURE COMPTE TITRES ESPECES", file: "/documents/Convention_Ouverture_Compte_Titres_Especes.pdf" },
-      { name: "GRILLE TARIFAIRE", file: "/documents/Grille_tarifaire.pdf" },
-      { name: "POUVOIR SIGNATURE PM", file: "/documents/Pouvoir_Signature_PM.pdf" },
+      { name: "download.fileConventionIntermediation", file: "/documents/Convention_Intermediation.pdf" },
+      { name: "download.fileFichePM", file: "/documents/Fiche_questionnaire_PM.pdf" },
+      { name: "download.fileConventionOuverture", file: "/documents/Convention_Ouverture_Compte_Titres_Especes.pdf" },
+      { name: "download.fileGrilleTarifaire", file: "/documents/Grille_tarifaire.pdf" },
+      { name: "download.filePouvoirSignaturePM", file: "/documents/Pouvoir_Signature_PM.pdf" },
     ],
   },
   {
-    category: "DOSSIER BOURSE EN LIGNE",
+    category: "download.categoryBEL",
     files: [
-      { name: "CONVENTION BOURSE EN LIGNE", file: "/documents/Convention_BEL.pdf" },
+      { name: "download.fileConventionBEL", file: "/documents/Convention_BEL.pdf" },
     ],
   },
 ];
 
 export default function DownloadSection() {
   const [showFillable, setShowFillable] = React.useState(false);
+  const { t } = useTranslation();
   return (
     <section className="my-8 bg-white dark:bg-slate-800 rounded shadow">
       <div className="px-6 py-4 border-b flex items-center gap-2 dark:border-gray-700">
         <DownloadIcon className="text-blue-600 dark:text-blue-300" />
-        <h2 className="text-lg font-bold text-blue-700 dark:text-blue-200 uppercase">Espace téléchargement</h2>
+        <h2 className="text-lg font-bold text-blue-700 dark:text-blue-200 uppercase">{t('download.title')}</h2>
       </div>
       <Accordion type="single" collapsible className="w-full">
         {documents.map((cat, idx) => (
           <AccordionItem key={cat.category} value={cat.category}>
             <AccordionTrigger className="font-semibold text-blue-900 dark:text-blue-200 bg-blue-50 dark:bg-slate-700 hover:bg-blue-100 dark:hover:bg-slate-600 px-4">
-              {cat.category}
+              {t(cat.category)}
             </AccordionTrigger>
             <AccordionContent className="bg-blue-50 dark:bg-slate-700 px-4">
               <ul>
@@ -73,10 +75,9 @@ export default function DownloadSection() {
                       rel="noopener noreferrer"
                       className="text-blue-700 dark:text-blue-300 hover:underline flex items-center gap-2"
                     >
-                      {i + 1}- {doc.name}
+                      {i + 1}- {t(doc.name)}
                       <DownloadIcon />
                     </a>
-                    {/* Le bouton 'Remplir & Imprimer' a été retiré */}
                   </li>
                 ))}
               </ul>

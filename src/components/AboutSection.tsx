@@ -1,5 +1,6 @@
 
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const sliderImages = [
   '/documents/v1.PNG',
@@ -29,6 +30,7 @@ export const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImg, setCurrentImg] = useState(0);
   const [currentVal, setCurrentVal] = useState(0);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -86,10 +88,8 @@ export const AboutSection = () => {
       {/* Titre et texte d'intro */}
       <div className="container mx-auto px-4 mt-12">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}> 
-          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 text-center">Présentation</h2>
-          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto text-center">
-            Valoris Securities est une société de bourse de référence, spécialisée dans l'accompagnement patrimonial et l'investissement financier.
-          </p>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6 text-center">{t('about.titre')}</h2>
+          <p className="text-xl text-gray-600 mb-10 max-w-2xl mx-auto text-center">{t('about.texte1')}</p>
           {/* Valeur animée */}
           <div className="flex justify-center">
             <div className="w-full max-w-2xl flex justify-center">

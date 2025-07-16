@@ -1,9 +1,11 @@
 
 import { useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export const OrganizationSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useTranslation();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -34,11 +36,10 @@ export const OrganizationSection = () => {
         }`}>
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-              Organisation
+              {t('organization.titre')}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Une structure organisée et réglementée pour garantir la sécurité 
-              et la performance de vos investissements.
+              {t('organization.texte1')}
             </p>
           </div>
 
@@ -46,55 +47,52 @@ export const OrganizationSection = () => {
             <div className="space-y-6">
               <div className="border-l-4 border-blue-600 pl-6">
                 <h3 className="text-2xl font-semibold text-slate-800 mb-3">
-                  Gouvernance
+                  {t('organization.gouvernance.titre')}
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Notre société est dirigée par une équipe expérimentée de professionnels 
-                  de la finance, garantissant une gestion rigoureuse et transparente.
+                  {t('organization.gouvernance.texte')}
                 </p>
               </div>
 
               <div className="border-l-4 border-blue-600 pl-6">
                 <h3 className="text-2xl font-semibold text-slate-800 mb-3">
-                  Régulation
+                  {t('organization.regulation.titre')}
                 </h3>
                 <p className="text-gray-600 mb-4">
-                  Agréée par l'ACPR et contrôlée par l'AMF, Valoris Securities 
-                  respecte les plus hauts standards de la réglementation financière française.
+                  {t('organization.regulation.texte')}
                 </p>
               </div>
 
               <div className="border-l-4 border-blue-600 pl-6">
                 <h3 className="text-2xl font-semibold text-slate-800 mb-3">
-                  Équipe
+                  {t('organization.equipe.titre')}
                 </h3>
                 <p className="text-gray-600">
-                  Notre équipe de 50 collaborateurs experts vous accompagne 
-                  dans tous vos projets d'investissement.
+                  {t('organization.equipe.texte')}
                 </p>
               </div>
             </div>
 
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <h3 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
-                Nos Agréments
+                {t('organization.agrements.titre')}
               </h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">ACPR - Autorité de Contrôle Prudentiel</span>
+                  <span className="text-gray-700">{t('organization.agrements.acpr')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">AMF - Autorité des Marchés Financiers</span>
+                  <span className="text-gray-700">{t('organization.agrements.amf')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">FGDR - Fonds de Garantie des Dépôts</span>
+                  <span className="text-gray-700">{t('organization.agrements.fgdr')}</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-                  <span className="text-gray-700">CNCIF - Chambre Nationale des Conseillers</span>
+                  <span className="text-gray-700">{t('organization.agrements.cncif')}</span>
                 </div>
               </div>
             </div>

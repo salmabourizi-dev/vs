@@ -10,9 +10,11 @@ import TimelineSection from '../components/TimelineSection';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import SupportChat from "@/components/SupportChat";
+import { useTranslation } from 'react-i18next';
 
 const Index = () => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
   useEffect(() => {
     const sectionId = localStorage.getItem('scrollToSection');
     if (sectionId) {
@@ -26,8 +28,6 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white">
       <Header />
-      
-   
       <HeroSection />
       <AboutSection />
       <OrganizationSection />
@@ -40,9 +40,9 @@ const Index = () => {
       </section>
       {/* Section Bourse Directe */}
       <div className="bg-blue-50 rounded-2xl shadow-lg p-8 my-10 flex flex-col items-center text-center mx-4">
-        <h2 className="text-2xl font-bold text-blue-700 mb-4">Bourse Directe</h2>
+        <h2 className="text-2xl font-bold text-blue-700 mb-4">{t('home.bourseDirecteTitle')}</h2>
         <p className="text-gray-600 mb-6">
-          Accédez à la plateforme Bourse Directe pour gérer vos investissements en ligne, en toute sécurité et simplicité.
+          {t('home.bourseDirecteDesc')}
         </p>
         <a
           href="https://www.valorisboursedirect.capitalgestiongroup.com/"
@@ -50,7 +50,7 @@ const Index = () => {
           rel="noopener noreferrer"
           className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full font-semibold text-lg shadow-lg hover:bg-blue-700 transition"
         >
-          Accéder à Bourse Directe
+          {t('home.bourseDirecteBtn')}
         </a>
       </div>
       <ContactSection />

@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { AnimatedLogo } from '@/components/AnimatedLogo';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 interface HeroSectionProps {
   onDevenirClient?: () => void;
@@ -16,6 +17,7 @@ export const HeroSection = ({ onDevenirClient }: HeroSectionProps) => {
     }
   };
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-slate-900 dark:via-slate-800 dark:to-slate-900 overflow-hidden">
@@ -28,36 +30,35 @@ export const HeroSection = ({ onDevenirClient }: HeroSectionProps) => {
         {/* Left Content */}
         <div className="text-white dark:text-blue-100 space-y-6 animate-fade-in">
           <h1 className="text-4xl md:text-6xl font-bold leading-tight">
-            Valoris
-            <span className="block text-blue-400 dark:text-blue-300">Securities</span>
+            {t('hero.title1')}
+            <span className="block text-blue-400 dark:text-blue-300">{t('hero.title2')}</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-300 dark:text-gray-200 font-light">
-            Société de Bourse
+            {t('hero.subtitle')}
           </p>
           <p className="text-lg text-gray-400 dark:text-gray-300 max-w-md">
-            Votre partenaire de confiance pour tous vos investissements financiers. 
-            Excellence, expertise et innovation au service de votre patrimoine.
+            {t('hero.desc')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Button 
               onClick={onDevenirClient ? onDevenirClient : scrollToContact}
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg"
             >
-              Devenir client
+              {t('hero.ctaClient')}
             </Button>
             <Button 
               variant="outline"
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
               className="bg-white border border-blue-600 text-blue-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-50 transition"
             >
-              En savoir plus
+              {t('hero.ctaAbout')}
             </Button>
             <Button
               variant="outline"
               onClick={() => navigate('/admin/login')}
               className="bg-gray-100 border border-blue-600 text-blue-600 px-8 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-blue-100 transition"
             >
-              Se connecter
+              {t('hero.ctaLogin')}
             </Button>
           </div>
         </div>

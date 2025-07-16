@@ -2,12 +2,14 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const { t, i18n } = useTranslation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +48,24 @@ export const Header = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Sélecteur de langue
+  const LangSelector = () => (
+    <div className="flex items-center space-x-2">
+      <button
+        onClick={() => i18n.changeLanguage('fr')}
+        className={`px-2 py-1 rounded ${i18n.language === 'fr' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+      >
+        FR
+      </button>
+      <button
+        onClick={() => i18n.changeLanguage('en')}
+        className={`px-2 py-1 rounded ${i18n.language === 'en' ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700'}`}
+      >
+        EN
+      </button>
+    </div>
+  );
+
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
@@ -67,27 +87,28 @@ export const Header = () => {
               onClick={() => scrollToSection('about')}
               className="text-slate-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Présentation
+              {t('navbar.home')}
             </button>
             <button 
               onClick={() => scrollToSection('organization')}
               className="text-slate-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Organisation
+              {t('navbar.organization')}
             </button>
             <button 
               onClick={() => scrollToSection('services')}
               className="text-slate-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Nos métiers
+              {t('navbar.services')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="text-slate-700 hover:text-blue-600 transition-colors font-medium"
             >
-              Contactez-nous
+              {t('navbar.contact')}
             </button>
-            <Link to="/notre-equipe" className="px-4 py-2 hover:text-blue-600">Notre équipe</Link>
+            <Link to="/notre-equipe" className="px-4 py-2 hover:text-blue-600">{t('navbar.team')}</Link>
+            <LangSelector />
             <button onClick={toggleDarkMode} className="text-xl px-2 focus:outline-none" title="Changer de mode">
               <span className="hidden dark:inline">☀️</span>
               <span className="inline dark:hidden">🌙</span>
@@ -96,13 +117,13 @@ export const Header = () => {
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold"
               onClick={() => navigate('/open-account')}
             >
-              Devenir client
+              {t('navbar.openAccount', 'Devenir client')}
             </Button>
             <Button
               className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold"
               onClick={() => window.location.href = 'http://localhost:8081/register'}
             >
-              Créer Compte
+              {t('navbar.createAccount', 'Créer Compte')}
             </Button>
           </nav>
 
@@ -122,29 +143,30 @@ export const Header = () => {
               onClick={() => scrollToSection('about')}
               className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
-              Présentation
+              {t('navbar.home')}
             </button>
             <button 
               onClick={() => scrollToSection('organization')}
               className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
-              Organisation
+              {t('navbar.organization')}
             </button>
             <button 
               onClick={() => scrollToSection('services')}
               className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
-              Nos métiers
+              {t('navbar.services')}
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
               className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
-              Contactez-nous
+              {t('navbar.contact')}
             </button>
             <Link to="/notre-equipe" className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
-              Notre équipe
+              {t('navbar.team')}
             </Link>
+            <LangSelector />
             <button onClick={toggleDarkMode} className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2">
               <span className="hidden dark:inline">☀️</span>
               <span className="inline dark:hidden">🌙</span>
@@ -153,7 +175,7 @@ export const Header = () => {
               className="w-full bg-blue-600 hover:bg-blue-700 text-white px-6 py-2 rounded-lg font-semibold mt-4"
               onClick={() => { setIsMobileMenuOpen(false); navigate('/open-account'); }}
             >
-              Devenir client
+              {t('navbar.openAccount', 'Devenir client')}
             </Button>
           </nav>
         )}

@@ -1,16 +1,17 @@
 import { useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'react-i18next';
 
 const timelineData = [
-  { date: 'Juillet 1998', event: "Agrément du Ministre des Finances en tant que société de bourse et Teneur de compte affilié à Maroclear" },
-  { date: 'Octobre 1998', event: "Création juridique de la société par ses fondateurs M. Omar AMINE, M. Youssef Jaidi ainsi que le groupe La Financière Capitale avec un capital initial de 5 millions de DH" },
-  { date: 'Avril 2003', event: "Nomination de M. Omar AMINE en tant qu’administrateur de la Bourse de Casablanca" },
-  { date: 'décembre 2007', event: "La société réalise une année 2007 historique en terme d’activité avec + de 7 milliards de DH de volume des transactions boursières." },
-  { date: 'Mai 2013', event: "Election de M. Omar AMINE en tant que Président de l’APSB (Association Professionnelle des Sociétés de Bourse) pour un mandat de 3 années." },
-  { date: 'Novembre 2013', event: "Augmentation de capital de 6.5 Mdh pour le porter à 18 Millions de dh et entrée de VALORIS GROUP dans le tour de table de la société." },
-  { date: 'Février 2015', event: "Prise de contrôle majoritaire et Nouvel agrément du Ministre des Finances sous le n°" },
-  { date: 'Mars 2015', event: "Changement de dénomination d’Eurobourse à Valoris Securities" },
-  { date: 'Janvier 2017', event: "Nomination par le conseil d’administration d’un nouveau directeur général délégué." },
-  { date: 'Mars 2017', event: "Mise en place d’une nouvelle organisation au sein de la société pour accompagner la nouvelle vision stratégique définie par le conseil d’administration." }
+  { date: 'Juillet 1998', eventKey: 'timeline.event1' },
+  { date: 'Octobre 1998', eventKey: 'timeline.event2' },
+  { date: 'Avril 2003', eventKey: 'timeline.event3' },
+  { date: 'décembre 2007', eventKey: 'timeline.event4' },
+  { date: 'Mai 2013', eventKey: 'timeline.event5' },
+  { date: 'Novembre 2013', eventKey: 'timeline.event6' },
+  { date: 'Février 2015', eventKey: 'timeline.event7' },
+  { date: 'Mars 2015', eventKey: 'timeline.event8' },
+  { date: 'Janvier 2017', eventKey: 'timeline.event9' },
+  { date: 'Mars 2017', eventKey: 'timeline.event10' }
 ];
 
 export default function TimelineSection() {
@@ -18,6 +19,7 @@ export default function TimelineSection() {
   const [slideDir, setSlideDir] = useState<'left' | 'right'>('right');
   const [isPaused, setIsPaused] = useState(false);
   const intervalRef = useRef<NodeJS.Timeout | null>(null);
+  const { t } = useTranslation();
 
   // Défilement automatique
   useEffect(() => {
@@ -38,7 +40,7 @@ export default function TimelineSection() {
   return (
     <section className="py-20 bg-white" id="timeline">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-blue-700 mb-12 text-center">Nos Dates Clés</h2>
+        <h2 className="text-3xl font-bold text-blue-700 mb-12 text-center">{t('timeline.title')}</h2>
         <div className="relative flex justify-center items-center mb-12"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
@@ -76,7 +78,7 @@ export default function TimelineSection() {
             `}
             style={{ minHeight: 80 }}
           >
-            {timelineData[selected].event}
+            {t(timelineData[selected].eventKey)}
           </div>
         </div>
       </div>
