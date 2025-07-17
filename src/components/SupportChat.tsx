@@ -50,7 +50,7 @@ const SupportChat = () => {
         const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
             method: "POST",
             headers: {
-              Authorization: "Bearer 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",
+              Authorization: "Bearer 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",
               "Content-Type": "application/json",
               "HTTP-Referer": "https://vs-lilac.vercel.app/",
               "X-Title": "Valoris Securities",
