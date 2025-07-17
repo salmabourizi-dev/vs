@@ -102,7 +102,7 @@ export const Header = () => {
               {t('navbar.services')}
             </button>
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/contact')}
               className="text-slate-700 hover:text-blue-600 transition-colors font-medium"
             >
               {t('navbar.contact')}
@@ -158,7 +158,7 @@ export const Header = () => {
               {t('navbar.services')}
             </button>
             <button 
-              onClick={() => scrollToSection('contact')}
+              onClick={() => navigate('/contact')}
               className="block w-full text-left text-slate-700 hover:text-blue-600 transition-colors font-medium py-2"
             >
               {t('navbar.contact')}

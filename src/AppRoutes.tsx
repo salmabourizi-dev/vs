@@ -12,6 +12,7 @@ import CompleteProfile from "./pages/CompleteProfile";
 import ClientDashboard from "./pages/ClientDashboard";
 import TeamPage from "./pages/TeamPage";
 import TeamMemberPage from "./pages/TeamMemberPage";
+import ContactPage from "./pages/ContactPage";
 
 const RoutesWithLoader = () => {
   const [loading, setLoading] = useState(false);
@@ -40,6 +41,7 @@ const RoutesWithLoader = () => {
         <Route path="/client/dashboard" element={<ClientDashboard />} />
         <Route path="/notre-equipe" element={<TeamPage />} />
         <Route path="/notre-equipe/:slug" element={<TeamMemberPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

@@ -124,6 +124,7 @@ export const Footer = () => {
               <li><a href="#organization" className="text-gray-400 hover:text-white transition-colors">Organisation</a></li>
               <li><a href="#services" className="text-gray-400 hover:text-white transition-colors">Nos métiers</a></li>
               <li><a href="#contact" className="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+              <li><a href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact (page)</a></li>
             </ul>
           </div>
 
