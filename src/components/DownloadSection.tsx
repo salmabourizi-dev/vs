@@ -39,7 +39,7 @@ const documents = [
       { name: "download.fileFichePM", file: "/documents/Fiche_questionnaire_PM.pdf" },
       { name: "download.fileConventionOuverture", file: "/documents/Convention_Ouverture_Compte_Titres_Especes.pdf" },
       { name: "download.fileGrilleTarifaire", file: "/documents/Grille_tarifaire.pdf" },
-      { name: "download.filePouvoirSignaturePM", file: "/documents/Pouvoir_Signature_PM.pdf" },
+      { name: "download.filePouvoirSignaturePM", file: "/documents/Pouvoir_signature_PM.pdf" },
     ],
   },
   {
